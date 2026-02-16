@@ -4,6 +4,12 @@ import { motion } from 'framer-motion';
 
 const projects = [
     {
+        id: 5,
+        title: 'Human Face Emotion Recognition',
+        category: 'Deep Learning & Computer Vision',
+        description: 'Deep Learning pipeline identifying 7 types of human emotions using Transfer Learning. Features automated data acquisition from Kaggle, data visualization, and model training.',
+    },
+    {
         id: 1,
         title: 'Customer Churn Prediction',
         category: 'AI & Deep Learning',

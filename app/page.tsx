@@ -6,6 +6,7 @@ import Dock from "@/components/Dock";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Education from "@/components/Education";
 import ParticleBackground from "@/components/ParticleBackground";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <div className="relative">
         <ParticleBackground />
         <div className="relative z-10">
+          <Education />
           <Projects />
           <Skills />
           <Experience />
