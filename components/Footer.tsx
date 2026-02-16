@@ -52,17 +52,23 @@ export default function Footer() {
 
 function SocialButton({ href, icon, icon2, label }: { href: string; icon: React.ReactNode; icon2?: React.ReactNode; label: string }) {
     return (
-        <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={label}
-            className="w-14 h-14 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 group"
-        >
-            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                {icon}
-                {icon2}
-            </svg>
-        </a>
+        <div className="relative group rounded-full p-[1px] overflow-hidden">
+            {/* Animated Gradient Border */}
+            <div className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#ef4444_0%,#0a0a0a_25%,#3b82f6_50%,#0a0a0a_75%,#ef4444_100%)] animate-[spin_4s_linear_infinite] opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-[1px] rounded-full bg-[#0a0a0a] z-0" />
+
+            <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="relative z-10 w-14 h-14 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white hover:bg-transparent hover:border-transparent transition-all duration-300"
+            >
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    {icon}
+                    {icon2}
+                </svg>
+            </a>
+        </div>
     )
 }

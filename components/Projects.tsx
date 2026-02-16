@@ -56,11 +56,14 @@ export default function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="group relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-colors duration-500 overflow-hidden"
+                            className="group relative rounded-2xl p-[1px] overflow-hidden"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            {/* Animated Gradient Border */}
+                            <div className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#ef4444_0%,#0a0a0a_25%,#3b82f6_50%,#0a0a0a_75%,#ef4444_100%)] animate-[spin_4s_linear_infinite] opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
 
-                            <div className="relative z-10">
+                            <div className="absolute inset-[1px] rounded-2xl bg-[#0a0a0a] z-0" />
+
+                            <div className="relative z-10 p-8 h-full bg-white/5 backdrop-blur-sm rounded-2xl transition-colors duration-500 group-hover:bg-transparent">
                                 <span className="text-xs font-mono text-blue-400 mb-2 block tracking-wider uppercase">
                                     {project.category}
                                 </span>
