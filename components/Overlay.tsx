@@ -16,9 +16,13 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
     const opacity2 = useTransform(scrollYProgress, [0.25, 0.35, 0.45], [0, 1, 0]);
     const y2 = useTransform(scrollYProgress, [0.25, 0.45], [50, -50]);
 
-    // Section 3: 55% - 75%
-    const opacity3 = useTransform(scrollYProgress, [0.55, 0.65, 0.75], [0, 1, 0]);
-    const y3 = useTransform(scrollYProgress, [0.55, 0.75], [50, -50]);
+    // Section 3: 50% - 70%
+    const opacity3 = useTransform(scrollYProgress, [0.50, 0.60, 0.70], [0, 1, 0]);
+    const y3 = useTransform(scrollYProgress, [0.50, 0.70], [50, -50]);
+
+    // Section 4: 75% - 95%
+    const opacity4 = useTransform(scrollYProgress, [0.75, 0.85, 0.95], [0, 1, 0]);
+    const y4 = useTransform(scrollYProgress, [0.75, 0.95], [50, -50]);
 
     return (
         <div className="absolute inset-0 z-10 pointer-events-none h-[500vh]">
@@ -82,6 +86,17 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
                     <h2 className="text-5xl md:text-7xl font-bold text-white max-w-2xl text-right leading-tight">
                         Engineering <span className="text-purple-500">scalable</span> <br />
                         digital solutions.
+                    </h2>
+                </motion.div>
+
+                {/* Section 4: Left Aligned */}
+                <motion.div
+                    style={{ opacity: opacity4, y: y4 }}
+                    className="absolute inset-0 flex items-center px-8 md:px-24"
+                >
+                    <h2 className="text-5xl md:text-7xl font-bold text-white max-w-2xl leading-tight">
+                        Crafting <span className="text-pink-500">intuitive</span> <br />
+                        user experiences.
                     </h2>
                 </motion.div>
             </div>
