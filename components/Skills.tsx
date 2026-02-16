@@ -104,14 +104,14 @@ function IconRing({ radius = 17 }) {
 export default function Skills() {
     return (
         <section id="skills" className="w-full bg-transparent relative flex flex-col items-center justify-center pt-0 pb-10 overflow-hidden">
-            <div className="text-center z-10 mb-8 relative pointer-events-none">
+            <div className="text-center z-10 mb-0 relative pointer-events-none">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">Technical Skills</h2>
                 <p className="text-gray-400 text-base">
                     Frameworks & Tools
                 </p>
             </div>
 
-            <div className="w-full h-[50vh] md:h-[60vh] cursor-grab active:cursor-grabbing">
+            <div className="w-full h-[50vh] md:h-[60vh] cursor-grab active:cursor-grabbing -mt-12 md:-mt-16">
                 {/* 
                     Adjusted camera for better fit:
                 */}
