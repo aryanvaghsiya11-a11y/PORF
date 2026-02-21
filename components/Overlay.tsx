@@ -8,24 +8,24 @@ interface OverlayProps {
 
 export default function Overlay({ scrollYProgress }: OverlayProps) {
 
-    // Section 1: 0% - 20%
-    const opacity1 = useTransform(scrollYProgress, [0, 0.15, 0.2], [1, 1, 0]);
-    const y1 = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
+    // Section 1: 0% - 18%
+    const opacity1 = useTransform(scrollYProgress, [0, 0.12, 0.18], [1, 1, 0]);
+    const y1 = useTransform(scrollYProgress, [0, 0.18], [0, -50]);
 
-    // Section 2: 25% - 45%
-    const opacity2 = useTransform(scrollYProgress, [0.25, 0.35, 0.45], [0, 1, 0]);
-    const y2 = useTransform(scrollYProgress, [0.25, 0.45], [50, -50]);
+    // Section 2: 22% - 42%
+    const opacity2 = useTransform(scrollYProgress, [0.22, 0.32, 0.42], [0, 1, 0]);
+    const y2 = useTransform(scrollYProgress, [0.22, 0.42], [50, -50]);
 
-    // Section 3: 50% - 70%
-    const opacity3 = useTransform(scrollYProgress, [0.50, 0.60, 0.70], [0, 1, 0]);
-    const y3 = useTransform(scrollYProgress, [0.50, 0.70], [50, -50]);
+    // Section 3: 46% - 66%
+    const opacity3 = useTransform(scrollYProgress, [0.46, 0.56, 0.66], [0, 1, 0]);
+    const y3 = useTransform(scrollYProgress, [0.46, 0.66], [50, -50]);
 
-    // Section 4: 75% - 95%
-    const opacity4 = useTransform(scrollYProgress, [0.75, 0.85, 0.95], [0, 1, 0]);
-    const y4 = useTransform(scrollYProgress, [0.75, 0.95], [50, -50]);
+    // Section 4: 70% - 92%
+    const opacity4 = useTransform(scrollYProgress, [0.70, 0.82, 0.92], [0, 1, 0]);
+    const y4 = useTransform(scrollYProgress, [0.70, 0.92], [50, -50]);
 
     return (
-        <div className="absolute inset-0 z-10 pointer-events-none h-[500vh]">
+        <div className="absolute inset-0 z-10 pointer-events-none h-[300vh]">
             {/* Sticky container to keep text in view while scrolling the parent height */}
             <div className="sticky top-0 h-screen w-full flex flex-col justify-center">
 

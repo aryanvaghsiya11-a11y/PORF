@@ -157,7 +157,7 @@ export default function ScrollyCanvas() {
     });
 
     return (
-        <div ref={containerRef} className="h-[500vh] relative">
+        <div ref={containerRef} className="h-[300vh] relative">
             <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#121212]">
                 {/* Canvas with blur-to-sharp transition */}
                 <canvas
