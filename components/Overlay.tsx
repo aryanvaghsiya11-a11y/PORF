@@ -37,6 +37,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
 
                         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-bold tracking-tighter text-white mb-6 sm:mb-8">
                             Aryan Vaghasiya.
+                            <span className="sr-only"> — AI Engineer & Data Analyst</span>
                         </h1>
 
                         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pointer-events-auto">
