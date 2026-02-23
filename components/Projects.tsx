@@ -37,18 +37,18 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section id="projects" className="bg-transparent px-8 py-12 relative z-20">
+        <section id="projects" className="bg-transparent px-4 sm:px-6 md:px-8 py-12 relative z-20">
             <div className="max-w-7xl mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-4xl md:text-5xl font-bold text-white mb-16 tracking-tight"
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10 md:mb-16 tracking-tight"
                 >
                     Projects
                 </motion.h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
@@ -56,29 +56,27 @@ export default function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="group relative rounded-2xl p-[1px] overflow-hidden"
+                            className="group relative rounded-2xl p-[1px] overflow-hidden cursor-pointer"
                         >
                             {/* Animated Gradient Border */}
                             <div className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#ef4444_0%,#0a0a0a_25%,#3b82f6_50%,#0a0a0a_75%,#ef4444_100%)] animate-[spin_4s_linear_infinite] opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
 
                             <div className="absolute inset-[1px] rounded-2xl bg-[#0a0a0a] z-0" />
 
-                            <div className="relative z-10 p-8 h-full bg-white/5 backdrop-blur-sm rounded-2xl transition-colors duration-500 group-hover:bg-transparent">
-                                <span className="text-xs font-mono text-blue-400 mb-2 block tracking-wider uppercase">
+                            <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full bg-white/5 backdrop-blur-sm rounded-2xl transition-colors duration-500 group-hover:bg-transparent">
+                                <span className="text-[10px] sm:text-xs font-mono text-blue-400 mb-2 block tracking-wider uppercase">
                                     {project.category}
                                 </span>
-                                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-200 transition-colors">
+                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-200 transition-colors">
                                     {project.title}
                                 </h3>
-                                <p className="text-gray-400 leading-relaxed">
+                                <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                                     {project.description}
                                 </p>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-
-                {/* Footer / Contact Section */}
             </div>
         </section>
     );

@@ -24,7 +24,18 @@ const skills = [
     { name: 'HTML5', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
 ];
 
-function Icon({ url, position, ...props }: { url: string; position: THREE.Vector3;[key: string]: any }) {
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+    return isMobile;
+}
+
+function Icon({ url, position }: { url: string; position: THREE.Vector3 }) {
     const meshRef = useRef<THREE.Mesh>(null);
     const [hovered, setHovered] = useState(false);
     const texture = useTexture(url);
@@ -35,7 +46,6 @@ function Icon({ url, position, ...props }: { url: string; position: THREE.Vector
 
     useFrame(({ camera }) => {
         if (meshRef.current) {
-            // Billboard facing camera
             meshRef.current.quaternion.copy(camera.quaternion);
         }
     });
@@ -45,9 +55,7 @@ function Icon({ url, position, ...props }: { url: string; position: THREE.Vector
             <group ref={meshRef} position={position}
                 onPointerOver={() => setHovered(true)}
                 onPointerOut={() => setHovered(false)}
-                {...props}
             >
-                {/* The Logo itself - Large and clear */}
                 <mesh position={[0, 0, 0]}>
                     <planeGeometry args={[2.2, 2.2]} />
                     <meshStandardMaterial
@@ -72,19 +80,15 @@ function IconRing({ radius = 17 }) {
 
         for (let i = 0; i < count; i++) {
             const skill = skills[i];
-
-            // Arrange in a circle on XZ plane
             const angle = i * angleStep;
             const x = radius * Math.cos(angle);
             const z = radius * Math.sin(angle);
-
             const pos = new THREE.Vector3(x, 0, z);
             temp.push({ pos, ...skill });
         }
         return temp;
     }, [radius]);
 
-    // Rotate the entire ring slowly
     const groupRef = useRef<THREE.Group>(null);
     useFrame((state, delta) => {
         if (groupRef.current) {
@@ -102,28 +106,28 @@ function IconRing({ radius = 17 }) {
 }
 
 export default function Skills() {
+    const isMobile = useIsMobile();
+    const ringRadius = isMobile ? 10 : 17;
+    const cameraZ = isMobile ? 20 : 26;
+
     return (
-        <section id="skills" className="w-full bg-transparent relative flex flex-col items-center justify-center pt-0 pb-10 overflow-hidden">
-            <div className="text-center z-10 mb-0 relative pointer-events-none">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">Technical Skills</h2>
-                <p className="text-gray-400 text-base">
+        <section id="skills" className="w-full bg-transparent relative flex flex-col items-center justify-center pt-0 pb-6 sm:pb-10 overflow-hidden">
+            <div className="text-center z-10 mb-0 relative pointer-events-none px-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">Technical Skills</h2>
+                <p className="text-gray-400 text-sm sm:text-base">
                     Frameworks & Tools
                 </p>
             </div>
 
-            <div className="w-full h-[50vh] md:h-[60vh] cursor-grab active:cursor-grabbing -mt-12 md:-mt-16">
-                {/* 
-                    Adjusted camera for better fit:
-                */}
-                <Canvas dpr={[1, 2]} camera={{ position: [0, 2, 26], fov: 50 }} gl={{ alpha: true }}>
+            <div className="w-full h-[40vh] sm:h-[45vh] md:h-[50vh] lg:h-[60vh] cursor-grab active:cursor-grabbing -mt-8 sm:-mt-12 md:-mt-16">
+                <Canvas dpr={[1, 2]} camera={{ position: [0, 2, cameraZ], fov: 50 }} gl={{ alpha: true }}>
                     <ambientLight intensity={2} />
                     <pointLight position={[10, 10, 10]} intensity={1} />
 
                     <Suspense fallback={null}>
-                        <IconRing radius={17} />
+                        <IconRing radius={ringRadius} />
                     </Suspense>
 
-                    {/* Orbit controls with limitations to keep the 'ring' feel */}
                     <OrbitControls
                         enableZoom={false}
                         enablePan={false}

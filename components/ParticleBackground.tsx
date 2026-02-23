@@ -6,6 +6,10 @@ export default function ParticleBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
+        // Respect reduced motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
@@ -13,9 +17,13 @@ export default function ParticleBackground() {
 
         let width = canvas.width = canvas.offsetWidth;
         let height = canvas.height = canvas.offsetHeight;
+        let animationId: number;
+
+        // Fewer particles on mobile for battery
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 25 : 50;
 
         const particles: Particle[] = [];
-        const particleCount = 50; // Density
 
         class Particle {
             x: number;
@@ -26,8 +34,8 @@ export default function ParticleBackground() {
 
             constructor() {
                 this.x = Math.random() * width;
-                this.y = height + Math.random() * 100; // Start below
-                this.vy = Math.random() * 0.5 + 0.1; // Slow upward float
+                this.y = height + Math.random() * 100;
+                this.vy = Math.random() * 0.5 + 0.1;
                 this.size = Math.random() * 2 + 0.5;
                 this.opacity = Math.random() * 0.5 + 0.1;
             }
@@ -63,13 +71,13 @@ export default function ParticleBackground() {
                 p.update();
                 p.draw();
             });
-            requestAnimationFrame(animate);
+            animationId = requestAnimationFrame(animate);
         };
 
         const handleResize = () => {
             width = canvas.width = canvas.offsetWidth;
             height = canvas.height = canvas.offsetHeight;
-            init(); // Re-init to fill new space
+            init();
         };
 
         window.addEventListener('resize', handleResize);
@@ -78,6 +86,7 @@ export default function ParticleBackground() {
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            cancelAnimationFrame(animationId);
         };
     }, []);
 
@@ -85,6 +94,7 @@ export default function ParticleBackground() {
         <canvas
             ref={canvasRef}
             className="fixed inset-0 w-full h-full pointer-events-none opacity-50 z-[5]"
+            aria-hidden="true"
         />
     );
 }

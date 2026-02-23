@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
     return (
-        <footer className="relative min-h-[50vh] bg-transparent overflow-hidden flex flex-col items-center justify-center text-center px-8">
+        <footer className="relative min-h-[40vh] sm:min-h-[50vh] bg-transparent overflow-hidden flex flex-col items-center justify-center text-center px-4 sm:px-8 pb-24 sm:pb-28">
 
             {/* Content */}
             <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">
@@ -14,13 +14,13 @@ export default function Footer() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter mb-16"
+                    className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter mb-10 sm:mb-16"
                 >
                     Let's defy gravity <span className="text-white/20">together.</span>
                 </motion.h2>
 
                 {/* Social Icons */}
-                <div className="flex items-center gap-6 mb-24">
+                <div className="flex items-center gap-4 sm:gap-6 mb-12 sm:mb-16">
                     <SocialButton href="https://twitter.com/aryanvaghsiya" icon={
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     } label="X (Twitter)" />
@@ -39,8 +39,8 @@ export default function Footer() {
                 </div>
 
                 {/* Copyright */}
-                <div className="absolute bottom-6 flex flex-col items-center">
-                    <span className="text-white/20 text-xs tracking-widest uppercase font-light">
+                <div className="flex flex-col items-center">
+                    <span className="text-white/20 text-[10px] sm:text-xs tracking-widest uppercase font-light">
                         © 2024 Brainchain Labs. Crafted in the void.
                     </span>
                 </div>
@@ -62,9 +62,9 @@ function SocialButton({ href, icon, icon2, label }: { href: string; icon: React.
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="relative z-10 w-14 h-14 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white hover:bg-transparent hover:border-transparent transition-all duration-300"
+                className="relative z-10 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white active:text-white hover:bg-transparent hover:border-transparent active:scale-95 transition-all duration-300"
             >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
                     {icon}
                     {icon2}
                 </svg>
