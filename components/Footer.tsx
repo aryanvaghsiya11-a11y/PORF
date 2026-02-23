@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
     return (
-        <footer className="relative min-h-[40vh] sm:min-h-[50vh] bg-transparent overflow-hidden flex flex-col items-center justify-center text-center px-4 sm:px-8 pb-24 sm:pb-28">
+        <footer className="relative min-h-[40vh] sm:min-h-[50vh] bg-transparent overflow-hidden flex flex-col items-center justify-center text-center px-4 sm:px-8 pb-24 sm:pb-28 will-change-transform">
 
             {/* Content */}
             <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">

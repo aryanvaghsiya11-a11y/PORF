@@ -21,7 +21,7 @@ const experiences = [
 
 export default function Experience() {
     return (
-        <section id="experience" className="bg-transparent px-4 sm:px-6 md:px-8 pb-12 pt-0 relative z-20 flex flex-col items-center">
+        <section id="experience" className="bg-transparent px-4 sm:px-6 md:px-8 pb-12 pt-0 relative z-20 flex flex-col items-center will-change-transform">
 
             <div className="max-w-4xl mx-auto w-full">
                 <motion.h2
