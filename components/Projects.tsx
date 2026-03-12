@@ -4,6 +4,14 @@ import { motion } from 'framer-motion';
 
 const projects = [
     {
+        id: 7,
+        title: 'Tri-Modal Health Screening',
+        category: 'AI & Healthcare Diagnostics',
+        description: 'A multi-modal AI system (DenseNet121, XGBoost, Stacked Bi-LSTM) designed to predict lung Infiltration by fusing visual, tabular, and sequential data.',
+        github: 'https://github.com/aryanvaghsiya11-a11y/tri-modal-health-screening',
+        deploy: 'https://huggingface.co/spaces/aryan6970/tri-modal-health-screening',
+    },
+    {
         id: 6,
         title: 'Medical Chat Bot',
         category: 'AI & NLP',
