@@ -4,6 +4,30 @@ import { motion } from 'framer-motion';
 
 const projects = [
     {
+        id: 10,
+        title: 'Wanderlust AI',
+        category: 'AI Travel Platform',
+        description: 'A high-end platform transforming travel data into cinematic stories. Powered by LangGraph, it focuses on a destination\'s narrative and hidden pulse to inspire personal journeys.',
+        github: 'https://github.com/aryanvaghsiya11-a11y/Wanderlust-AI-The-Cinematic-Travel-Platform',
+        deploy: 'https://wander-lustai.vercel.app/',
+    },
+    {
+        id: 9,
+        title: 'AetherDraft AI',
+        category: 'AI Content SaaS',
+        description: 'A premium SaaS for autonomous, SEO-optimized long-form content generation. Powered by a multi-agent LangGraph architecture, FastAPI, and a glassmorphic Next.js UI.',
+        github: 'https://github.com/aryanvaghsiya11-a11y/AetherDraft-AI',
+        deploy: 'https://aetherdraft-studio.vercel.app/',
+    },
+    {
+        id: 8,
+        title: 'VanLucentX',
+        category: 'AI Healthcare Diagnostics',
+        description: 'A next-generation Tri-Modal AI diagnostic system for respiratory health. Fuses radiological imaging, patient metadata, and continuous vitals to predict lung infiltration.',
+        github: 'https://github.com/aryanvaghsiya11-a11y/VanLucentX',
+        deploy: 'https://vanlucentx.vercel.app/',
+    },
+    {
         id: 7,
         title: 'Tri-Modal Health Screening',
         category: 'AI & Healthcare Diagnostics',
